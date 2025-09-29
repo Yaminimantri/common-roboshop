@@ -91,6 +91,8 @@ systemd_setup(){
     systemctl daemon-reload
     systemctl enable $app_name &>>$LOG_FILE
     VALIDATE $? "Enable $app_name"
+    systemctl restart $app_name
+     VALIDATE $? "Started the appname $app_name"
 }
 
 app_restart(){
